@@ -19,7 +19,7 @@ const CreateBook = () => {
             publishYear,
         };
         setLoading(true);
-        axios.post('http://localhost:5555/books', data)
+        axios.post('${process.env.REACT_APP_BACKEND_URL}/books', data)
         .then(()=>{
             setLoading(false);
             enqueueSnackbar("Book Created Successfully" , {variant:'success'});
