@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import {url} from "../api_url";
 import Spinner from '../components/spinner';
 import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom';
@@ -14,7 +15,7 @@ const Home = () => {
   const [showType, setShowType] = useState('table');
   useEffect(()=>{
     setLoading(true);
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/books`)
+    axios.get(`${url}/books`)
     .then((response)=>{
         setBooks(response.data.data);
         setLoading(false);
