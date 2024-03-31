@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { BackButton } from '../components/BackButton';
 import Spinner from '../components/spinner';
+import {url} from "../api_url"
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 import {useSnackbar} from 'notistack';
@@ -19,7 +20,7 @@ const CreateBook = () => {
             publishYear,
         };
         setLoading(true);
-        axios.post('${process.env.REACT_APP_BACKEND_URL}/books', data)
+        axios.post('${url}/books', data)
         .then(()=>{
             setLoading(false);
             enqueueSnackbar("Book Created Successfully" , {variant:'success'});
