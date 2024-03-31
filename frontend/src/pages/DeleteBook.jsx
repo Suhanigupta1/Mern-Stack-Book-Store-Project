@@ -1,5 +1,6 @@
 import React from 'react'
 import { BackButton } from '../components/BackButton'
+import {url} from "../api_url"
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import Spinner from '../components/spinner'
@@ -14,7 +15,7 @@ const DeleteBook = () => {
         setLoading(true);
         // axios.get(`http://localhost:5555/books/${id}`).
         // then((data)=>console.log(data))
-        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/books/${id}`)
+        axios.delete(`${url}/books/${id}`)
         .then(()=>{
             setLoading(false);
             enqueueSnackbar('Book Deleted Successfully', {variant: 'success'});
