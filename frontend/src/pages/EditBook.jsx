@@ -41,7 +41,7 @@ const EditBook = () => {
             publishYear
         };
         setLoading(true);
-        axios.put(`${process.env.REACT_APP_BACKEND_URL}/books/${id}`, data)
+        axios.put(`${url}/books/${id}`, data)
         .then(()=>{
             setLoading(false);
             enqueueSnackbar('Book Edited Successfully', {variant: 'success'});
