@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import {url} from "../api_url"
 import { BackButton } from '../components/BackButton';
 import Spinner from '../components/spinner';
 import axios from 'axios';
@@ -17,7 +18,7 @@ const EditBook = () => {
     const {id} = useParams();
     useEffect(()=>{
         setLoading(true);
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/books/${id}`)
+        axios.get(`${url}/books/${id}`)
         .then((response)=>{
             setAuthor(response.data.data.author);
             setPublishYear(response.data.data.publishYear);
