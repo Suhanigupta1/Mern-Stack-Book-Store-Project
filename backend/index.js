@@ -8,18 +8,25 @@ app.use(express.json());
 import cors from 'cors';
 //Middleware for handling CORS POLICY
 //Option 1 : Allow All origins with Default of cors;
-app.use(cors());
+// app.use(cors());
 // // Option 2: Allow Custom Origins
-// app.use(
-//   cors({
-//     origin:'http://localhost:3000' ,
-//     methods: ['GET','POST' ,'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type'],  
-//   })
-// );
+app.use(
+  cors({
+    origin:'http://localhost:3000' ,
+    methods: ['GET','POST' ,'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'],  
+  }, 
+ {
+    origin:'https://mern-stack-book-store-project-backend.vercel.app/' ,
+    methods: ['GET','POST' ,'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'],  
+  },
+  
+      )
+);
 app.get('/', (request, response)=>{
   console.log(request);
-  return response.status(234).send('Welcome to mern Stack tutorial')
+  return response.status(234).send('Welcome to Bookwarm ')
 })
 
 app.use('/books', booksRoute);
